@@ -20,7 +20,7 @@ def to_csv(reports: List[FullEvaluationReport]) -> str:
     headers = ['dialogue_id', 'indicator_id', 'indicator_name', 'not_applicable', 'score', 'justification']
     writer = csv.DictWriter(output, fieldnames=headers)
     writer.writeheader()
-    
+
     for report in reports:
         for result in report.evaluation_results:
             row = {
@@ -32,7 +32,6 @@ def to_csv(reports: List[FullEvaluationReport]) -> str:
                 'justification': result.justification,
             }
             writer.writerow(row)
-            
     return output.getvalue()
 
 

@@ -12,7 +12,7 @@ class MedicalKnowledgeAccuracyEvaluator(BaseEvaluator):
     indicator_id = "med_knowledge_accuracy"
     indicator_name = "Medical Knowledge Accuracy"
     definition = "Did the doctor provide medically correct information about diagnoses, medications, and tests?"
-    scoring_rubric = {"low_example": "Doctor recommends antibiotics for viral cold", 
+    scoring_rubric = {"low_example": "Doctor recommends antibiotics for viral cold",
                       "high_example": "Doctor correctly distinguishes viral vs. bacterial"}
 
 
@@ -20,14 +20,15 @@ class GuidelineConcordanceEvaluator(BaseEvaluator):
     indicator_id = "guideline_concordance"
     indicator_name = "Guideline/Standard Concordance"
     definition = "Were recommendations consistent with current best-practice clinical guidelines or standards?"
-    scoring_rubric = {"low_example": "Recommends obsolete or unapproved treatment", "high_example": "Follows latest hypertension management guidelines"}
+    scoring_rubric = {"low_example": "Recommends obsolete or unapproved treatment", "high_example":
+                      "Follows latest hypertension management guidelines"}
 
 
 class IndividualizationOfAdviceEvaluator(BaseEvaluator):
     indicator_id = "individualization_of_advice"
     indicator_name = "Individualization of Advice"
     definition = "Was advice tailored to the patient’s age, comorbidities, and context?"
-    scoring_rubric = {"low_example": "Same advice for all, ignores patient’s diabetes", 
+    scoring_rubric = {"low_example": "Same advice for all, ignores patient’s diabetes",
                       "high_example": "Adjusts advice for patient with kidney disease"}
 
 
@@ -125,4 +126,3 @@ class CulturalSensitivityConfidentialityEvaluator(BaseEvaluator):
     definition = "Did the doctor demonstrate cultural awareness and protect patient privacy?"
     scoring_rubric = {"low_example": "Dismisses cultural beliefs or shares private info",
                       "high_example": "Adapts to patient’s culture, maintains privacy"}
-    

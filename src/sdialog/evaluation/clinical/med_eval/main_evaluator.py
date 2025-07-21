@@ -54,10 +54,8 @@ class DialogueEvaluator:
     async def evaluate(self, dialogue: Dialogue) -> FullEvaluationReport:
         """Runs evaluation for a dialogue across all indicators concurrently."""
         logger.info(f"Starting evaluation for dialogue: {dialogue.id}...")
-        
         tasks = [self._evaluate_single_indicator(ev, dialogue) for ev in self.evaluators]
         evaluation_results = await asyncio.gather(*tasks)
-        
         logger.info(f"Finished evaluation for dialogue: {dialogue.id}.")
         return FullEvaluationReport(
             dialogue_id=dialogue.id,

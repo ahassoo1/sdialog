@@ -18,11 +18,11 @@ def discover_evaluators() -> List[BaseEvaluator]:
         if module_name == 'base':
             continue
         module = __import__(f"{__name__}.{module_name}", fromlist=["*"])
-        
+
         for name, obj in inspect.getmembers(module, inspect.isclass):
             if issubclass(obj, BaseEvaluator) and obj is not BaseEvaluator:
                 evaluator_instances.append(obj())
-                
+
     return sorted(evaluator_instances, key=lambda x: x.indicator_name)
 
 

@@ -56,7 +56,7 @@ def load_dialogues(dialogue_file: str) -> List[Dialogue]:
                     try:
                         dialogues.append(Dialogue.parse_raw(line))
                     except Exception as e:
-                        logger.error(f"Failed to parse line {i+1} in {dialogue_file}: {e}")
+                        logger.error(f"Failed to parse line {i + 1} in {dialogue_file}: {e}")
     except FileNotFoundError:
         logger.error(f"FATAL: Dialogue file not found at: {dialogue_file}")
     return dialogues
@@ -65,25 +65,25 @@ def load_dialogues(dialogue_file: str) -> List[Dialogue]:
 async def main():
     """Main asynchronous function to orchestrate the evaluation process."""
     args = parse_args()
-    
+
     if args.plot:
         os.makedirs(args.plot, exist_ok=True)
         logger.info(f"Plots will be saved to '{args.plot}' directory.")
-    
+
     logger.info("Initializing evaluation framework...")
     all_evaluators = discover_evaluators()
     if not all_evaluators:
         logger.error("FATAL: No evaluators found. Please check the 'evaluators' directory.")
         return
     logger.info(f"Successfully discovered {len(all_evaluators)} evaluators.")
-    
+
     dialogues = load_dialogues(args.dialogue_file)
     if not dialogues:
         logger.warning("No dialogues loaded from file. Exiting.")
         return
-    
+
     evaluator = DialogueEvaluator(evaluators=all_evaluators)
-    
+
     all_reports: List[FullEvaluationReport] = []
     for dialogue in dialogues:
         report = await evaluator.evaluate(dialogue)
@@ -96,10 +96,10 @@ async def main():
 
     formatter = FORMATTERS[args.format]
     output_content = formatter(all_reports)
-    
+
     with open(args.output_file, 'w', encoding='utf-8') as f:
         f.write(output_content)
-        
+
     logger.info(f"Evaluation complete. Report saved to '{args.output_file}' in {args.format.upper()} format.")
 
 if __name__ == "__main__":

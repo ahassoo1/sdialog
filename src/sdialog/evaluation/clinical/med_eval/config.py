@@ -30,7 +30,6 @@ def load_config(path: str = "config.yaml") -> AppConfig:
     except Exception as e:
         logger.error(f"Error loading config from '{path}': {e}. Using default settings.")
         return AppConfig()
-    
+
 
 config = load_config()
-

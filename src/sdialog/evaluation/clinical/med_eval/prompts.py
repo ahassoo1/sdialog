@@ -27,7 +27,7 @@ First, determine if the indicator is applicable to the dialogue. The indicator i
  does not contain any relevant events, decisions, or information to be judged against the indicator's definition.
 
 - **If Applicable:** Provide a score from 1 to 5 and a detailed justification.
-- **If Not Applicable:** State that it is not applicable and briefly explain why 
+- **If Not Applicable:** State that it is not applicable and briefly explain why
 (e.g., "The dialogue does not involve prescribing medication,
  so guideline concordance for prescriptions cannot be assessed.").
 

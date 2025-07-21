@@ -56,7 +56,7 @@ class FullEvaluationReport(BaseModel):
             return
 
         plt.style.use('seaborn-v0_8-whitegrid')
-        
+
         if plot_type == 'bar':
             self._plot_bar(df, save_path)
         elif plot_type == 'radar':
@@ -67,7 +67,7 @@ class FullEvaluationReport(BaseModel):
     def _plot_bar(self, df: pd.DataFrame, save_path: Optional[str]):
         """Generates a bar chart."""
         plt.figure(figsize=(12, 8))
-        ax = sns.barplot(x='score', y='indicator_name', data=df.sort_values('score'), \
+        ax = sns.barplot(x='score', y='indicator_name', data=df.sort_values('score'),
                          palette='viridis', hue='indicator_name', dodge=False, legend=False)
         ax.set_title(f"Evaluation Scores for Dialogue: {self.dialogue_id}", fontsize=16, weight='bold')
         ax.set_xlabel("Score (1-5)", fontsize=12)

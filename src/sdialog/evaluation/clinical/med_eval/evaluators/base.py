@@ -13,7 +13,7 @@ class BaseEvaluator(ABC):
     def indicator_id(self) -> str:
         """A short, unique, machine-readable identifier (e.g., 'med_knowledge')."""
         pass
-        
+
     @property
     @abstractmethod
     def indicator_name(self) -> str:
